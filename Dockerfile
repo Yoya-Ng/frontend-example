@@ -4,6 +4,7 @@ FROM node:12-alpine as dependencies
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --production
+RUN npm install react-scripts
 RUN mkdir /app/dependencies
 RUN cp -R node_modules /app/dependencies/
 
@@ -13,7 +14,6 @@ FROM node:12-alpine as app
 WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/dependencies/node_modules ./node_modules
-RUN npm install
 RUN npm run build
 
 # Prepare nginx
