@@ -26,10 +26,15 @@ RUN npm install --only=production
 RUN cp -R node_modules prod_node_modules
 
 # Build stage
-FROM node:12-alpine as build
-WORKDIR /app
+FROM base as build
+
+# Copy the React App to the container
 COPY . /app/
-COPY --from=dependencies /app/node_modules ./node_modules
+
+# Copy the installed dependencies from the 'dependencies' image
+COPY --from=dependencies /app/prod_node_modules ./node_modules
+
+# We want the production version
 RUN npm run build
 
 # Prepare nginx
