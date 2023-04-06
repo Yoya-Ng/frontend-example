@@ -9,13 +9,13 @@ COPY package*.json ./
 
 # Install the dependencies with cache
 RUN npm install
-
 # Dependencies stage
 FROM base as dependencies
 
 # Install production dependencies only
 RUN npm set progress=false && npm config set depth 0
 RUN npm install --production
+RUN npm install react-scripts
 
 # Copy the dependencies to the app directory
 RUN cp -R node_modules /app/
