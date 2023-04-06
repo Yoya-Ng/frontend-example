@@ -7,7 +7,7 @@ FROM node:12-alpine as base
 WORKDIR /app
 
 # Copy the package.json and lock file to the container
-COPY package*.json yarn.* ./
+COPY package*.json ./
 
 # Install the dependencies with cache
 RUN npm install
