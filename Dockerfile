@@ -9,7 +9,7 @@ WORKDIR /app
 COPY package*.json yarn.* ./
 
 # Copy node_modules to container
-COPY node_modules /app/node_modules
+COPY --from=dependencies /app/node_modules ./node_modules
 
 # Install dependencies with cache
 RUN npm install
