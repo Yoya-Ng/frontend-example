@@ -1,3 +1,5 @@
+RUN git pull
+
 # Set the base image to node:12-alpine
 FROM node:12-alpine as build
 
