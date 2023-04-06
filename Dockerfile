@@ -8,7 +8,7 @@ WORKDIR /app
 
 # Copy the React App to the container
 COPY . /app/
-RUN git pull
+
 # Prepare the container for building React
 RUN npm install
 # We want the production version
