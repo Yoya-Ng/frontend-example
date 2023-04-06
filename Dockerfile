@@ -9,7 +9,7 @@ COPY package*.json yarn.* ./
 
 # Install the dependencies with cache
 RUN npm config set cache /app/.npm-cache --global && \
-    npm install
+    npm install --no-optional
 # Build stage
 FROM base as build
 
