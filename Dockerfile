@@ -1,4 +1,3 @@
-
 # Set the base image to node:12-alpine
 FROM node:12-alpine as base
 
@@ -7,9 +6,6 @@ WORKDIR /app
 
 # Copy the package.json and lock file to the container
 COPY package*.json yarn.* ./
-
-# Copy node_modules to container
-COPY --from=dependencies /app/node_modules ./node_modules
 
 # Install dependencies with cache
 RUN npm install
