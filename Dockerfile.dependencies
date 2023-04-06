@@ -18,8 +18,8 @@ RUN npm install --production
 RUN npm install react-scripts
 
 # Copy the dependencies to the app directory
-RUN cp -R node_modules /app/
-
+RUN mkdir /app/dependencies
+RUN cp -R node_modules /app/dependencies/
 # Build stage
 FROM base as build
 
