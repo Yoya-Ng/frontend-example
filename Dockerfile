@@ -1,10 +1,11 @@
-# # 第一个阶段：构建依赖项镜像
-# FROM node:12-alpine as dependencies
+# 第一个阶段：构建依赖项镜像
+FROM node:12-alpine as dependencies
 
-# WORKDIR /app
-# COPY package*.json ./
-# RUN npm install --production
-# RUN cp -R node_modules /app/
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --production
+RUN mkdir /app/dependencies
+RUN cp -R node_modules /app/dependencies/
 
 # 第二个阶段：构建应用程序镜像
 FROM node:12-alpine as app
