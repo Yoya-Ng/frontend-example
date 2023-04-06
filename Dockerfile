@@ -4,7 +4,6 @@ FROM node:12-alpine as dependencies
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --production
-RUN npm install react-scripts
 RUN mkdir /app/dependencies
 RUN cp -R node_modules /app/dependencies/
 
