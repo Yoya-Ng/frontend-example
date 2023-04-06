@@ -6,11 +6,13 @@ FROM node:12-alpine as build
 # Specify where our app will live in the container
 WORKDIR /app
 
+COPY package*.json ./
+
+RUN npm install
+
 # Copy the React App to the container
 COPY . /app/
 
-# Prepare the container for building React
-RUN npm install --no-optional
 # We want the production version
 RUN npm run build
 
