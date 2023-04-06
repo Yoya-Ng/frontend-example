@@ -8,8 +8,7 @@ WORKDIR /app
 COPY package*.json yarn.* ./
 
 # Install the dependencies with cache
-RUN npm config set registry https://registry.npm.taobao.org/ && \
-    npm ci --only=production --silent
+RUN npm install
 
 # Build stage
 FROM base as build
