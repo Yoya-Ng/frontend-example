@@ -10,20 +10,12 @@ COPY package*.json ./
 # Install the dependencies with cache
 RUN npm install
 
-# Create a new image that only contains the installed dependencies
-FROM node:12-alpine as dependencies
+# Dependencies stage
+FROM base as dependencies
 
-# Specify where our app will live in the container
-WORKDIR /app
-
-# Copy the package.json and lock file to the container
-COPY package*.json ./
-
-# Install the dependencies with cache
+# Install production dependencies only
+RUN npm set progress=false && npm config set depth 0
 RUN npm install --only=production
-
-# Copy the installed dependencies to a new folder
-RUN cp -R node_modules prod_node_modules
 
 # Build stage
 FROM base as build
@@ -31,10 +23,10 @@ FROM base as build
 # Copy the React App to the container
 COPY . /app/
 
-# Copy the installed dependencies from the 'dependencies' image
-COPY --from=dependencies /app/prod_node_modules ./node_modules
+# Set environment to production
+ENV NODE_ENV=production
 
-# We want the production version
+# Build the production version
 RUN npm run build
 
 # Prepare nginx
