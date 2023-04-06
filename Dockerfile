@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package*.json yarn.* ./
 
 # Install the dependencies with cache
-RUN --mount=type=cache,target=/root/.npm npm install
+RUN npm install
 
 # Build stage
 FROM base as build
