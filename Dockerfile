@@ -8,8 +8,8 @@ WORKDIR /app
 COPY package*.json yarn.* ./
 
 # Install the dependencies with cache
-RUN npm install
-
+RUN npm config set cache /app/.npm-cache --global && \
+    npm install
 # Build stage
 FROM base as build
 
