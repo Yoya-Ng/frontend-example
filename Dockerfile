@@ -13,6 +13,7 @@ FROM node:12-alpine as app
 WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/dependencies/node_modules ./node_modules
+RUN npm install
 RUN npm run build
 
 # Prepare nginx
