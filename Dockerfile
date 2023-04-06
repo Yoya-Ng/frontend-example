@@ -9,10 +9,8 @@ WORKDIR /app
 # Copy the React App to the container
 COPY . /app/
 
-COPY package*.json ./
-RUN npm ci --only=production
 # Prepare the container for building React
-# RUN npm install
+RUN npm install
 # We want the production version
 RUN npm run build
 
