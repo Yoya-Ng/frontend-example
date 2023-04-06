@@ -1,18 +1,26 @@
-# 第一个阶段：构建依赖项镜像
-FROM node:12-alpine as dependencies
 
+# Set the base image to node:12-alpine
+FROM node:12-alpine as base
+
+# Specify where our app will live in the container
 WORKDIR /app
-COPY package*.json ./
-RUN npm install --production
-RUN mkdir /app/dependencies
-RUN cp -R node_modules /app/dependencies/
 
-# 第二个阶段：构建应用程序镜像
-FROM node:12-alpine as app
+# Copy the package.json and lock file to the container
+COPY package*.json yarn.* ./
 
-WORKDIR /app
-COPY . .
-COPY --from=dependencies /app/dependencies/node_modules ./node_modules
+# Copy node_modules to container
+COPY node_modules /app/node_modules
+
+# Install dependencies with cache
+RUN npm install
+
+# Build stage
+FROM base as build
+
+# Copy the React App to the container
+COPY . /app/
+
+# We want the production version
 RUN npm run build
 
 # Prepare nginx
