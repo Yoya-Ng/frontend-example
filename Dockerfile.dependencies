@@ -16,7 +16,7 @@ FROM base as dependencies
 # Install production dependencies only
 RUN npm set progress=false && npm config set depth 0
 RUN npm install --only=production
-
+RUN cp -R node_modules /app/
 # Build stage
 FROM base as build
 
