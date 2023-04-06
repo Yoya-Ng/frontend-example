@@ -13,12 +13,10 @@ COPY package*.json ./
 RUN npm install
 
 # Build stage
-FROM base as build
-
-# Copy the React App to the container
+FROM node:12-alpine as build
+WORKDIR /app
 COPY . /app/
-
-# We want the production version
+COPY --from=dependencies /app/node_modules ./node_modules
 RUN npm run build
 
 # Prepare nginx
