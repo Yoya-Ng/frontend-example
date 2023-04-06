@@ -1,19 +1,14 @@
-# syntax=docker/dockerfile:1.2
+# 第一个阶段：构建依赖项镜像
+FROM node:12-alpine as dependencies
 
-# Set the base image to node:12-alpine
-FROM node:12-alpine as base
-
-# Specify where our app will live in the container
 WORKDIR /app
-
-# Copy the package.json and lock file to the container
 COPY package*.json ./
+RUN npm install --production
+RUN cp -R node_modules /app/
 
-# Install the dependencies with cache
-RUN npm install
+# 第二个阶段：构建应用程序镜像
+FROM node:12-alpine as app
 
-# Build stage
-FROM node:12-alpine as build
 WORKDIR /app
 COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
