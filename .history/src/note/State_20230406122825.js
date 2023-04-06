@@ -3,11 +3,11 @@ import React from "react";
 class Clock extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            date: new Date(),
-            counter: 1,
-            increment: 2,
-            counter: 0
+        this.state = { 
+            date: new Date() ,
+            counter:1,
+            increment:2,
+            counter :0
         };
     }
 
@@ -26,13 +26,7 @@ class Clock extends React.Component {
         this.setState({
             date: new Date()
         });
-    }
-
-    State的更新可能是非同步的() {
-        this.setState((state, props) => ({
-            counter: state.counter + props.increment
-        }));
-    }
+    }   
 
     render() {
         return (
@@ -47,6 +41,6 @@ class Clock extends React.Component {
 
 function FormattedDate(props) {
     return <h2>2 It is {props.date.toLocaleTimeString()}.</h2>;
-}
+  }
 
 export default Clock;

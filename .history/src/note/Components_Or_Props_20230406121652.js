@@ -1,14 +1,34 @@
 function Welcome(props) {
-    return (
-        <div>
-            <h1>Hello1, {props.name}</h1>
-            <Comment
-                date={comment.date}
-                text={comment.text}
-                author={comment.author} />
-        </div>
-    );
-}
+    <div className="Comment">
+    <div className="UserInfo">
+      <img className="Avatar"
+        src={props.author.avatarUrl}
+        alt={props.author.name}
+      />
+      <div className="UserInfo-name">
+        {props.author.name}
+      </div>
+    </div>
+    <div className="Comment-text">
+      {props.text}
+    </div>
+    <div className="Comment-date">
+      {formatDate(props.date)}
+    </div>
+  </div>
+    }
+
+// function Welcome(props) {
+//     return (
+//         <div>
+//             <h1>Hello1, {props.name}</h1>
+//             <Comment
+//                 date={comment.date}
+//                 text={comment.text}
+//                 author={comment.author} />
+//         </div>
+//     );
+// }
 
 export default Welcome;
 
@@ -24,7 +44,7 @@ const comment = {
 function Comment(props) {
     return (
         <div className="Comment">
-            <UserInfo user={props.author} />
+            <UserInfo user={props.author} /> 
             <div className="Comment-text">
                 {props.text}
             </div>

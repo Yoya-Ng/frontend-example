@@ -1,14 +1,6 @@
 function Welcome(props) {
-    return (
-        <div>
-            <h1>Hello1, {props.name}</h1>
-            <Comment
-                date={comment.date}
-                text={comment.text}
-                author={comment.author} />
-        </div>
-    );
-}
+    return <h1>Hello, {props.name}</h1>;
+  }
 
 export default Welcome;
 
@@ -24,7 +16,7 @@ const comment = {
 function Comment(props) {
     return (
         <div className="Comment">
-            <UserInfo user={props.author} />
+            <UserInfo user={props.author} /> 
             <div className="Comment-text">
                 {props.text}
             </div>
