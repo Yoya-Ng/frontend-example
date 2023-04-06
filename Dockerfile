@@ -15,7 +15,7 @@ RUN npm install
 # Build stage
 FROM node:12-alpine as build
 WORKDIR /app
-COPY . /app/
+COPY . .
 COPY --from=dependencies /app/node_modules ./node_modules
 RUN npm run build
 
