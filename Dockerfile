@@ -13,8 +13,6 @@ COPY . /app/
 RUN npm install
 # We want the production version
 RUN npm run build
-RUN docker stop frontend-example
-RUN docker rm frontend-example
 
 # Prepare nginx
 # Pull nginx base image
