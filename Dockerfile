@@ -1,14 +1,18 @@
-
-
 # Set the base image to node:12-alpine
-FROM node:12-alpine as build
+FROM node:12-alpine as base
 
 # Specify where our app will live in the container
 WORKDIR /app
 
-COPY package*.json ./
+# Copy the package.json and lock file to the container
+COPY package*.json yarn.* ./
 
-RUN npm install
+# Install the dependencies with cache
+RUN npm config set registry https://registry.npm.taobao.org/ && \
+    npm ci --only=production --silent
+
+# Build stage
+FROM base as build
 
 # Copy the React App to the container
 COPY . /app/
