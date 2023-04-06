@@ -10,7 +10,7 @@ WORKDIR /app
 COPY . /app/
 
 # Prepare the container for building React
-RUN npm install
+RUN yarn install
 # We want the production version
 RUN npm run build
 
