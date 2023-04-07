@@ -11,7 +11,7 @@ function ExampleComponent() {
 
     const handleClick = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/hello');
+            const response = await axios.get('//localhost:3001/hello');
             setMessage(response.data);
         } catch (error) {
             console.error(error);

@@ -6,7 +6,6 @@ import { increment, decrement, increase, addTodo } from "./redux/index";
 import TodoList from "./components/Todolist";
 import React, { useState } from "react";
 
-
 function App() {
   return (
     <div className="App">
@@ -17,3 +16,14 @@ function App() {
 export default App;
 
 
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/hello', (req, res) => {
+  res.send('Hello World!!!!!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
