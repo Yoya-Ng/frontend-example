@@ -1,4 +1,4 @@
-FROM node:12-alpine as build
+FROM node:18-alpine as build
 
 # Specify where our app will live in the container
 WORKDIR /app
