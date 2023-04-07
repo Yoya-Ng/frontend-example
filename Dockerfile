@@ -4,7 +4,7 @@ FROM node:12-alpine as build
 WORKDIR /app
 COPY package*.json ./
 # Prepare the container for building React
-RUN npm install
+RUN yarn install
 # Copy the React App to the container
 COPY . .
 # We want the production version
