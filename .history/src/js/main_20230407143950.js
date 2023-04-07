@@ -35,7 +35,7 @@ function Main() {
             {/* <Welcome name="Edite" /> */}
             <Clock />
             <Toggle />
-            {ExampleComponent()}
+            {this.ExampleComponent()}
         </>
     );
 };

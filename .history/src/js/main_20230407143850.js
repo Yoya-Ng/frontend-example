@@ -14,6 +14,7 @@ function ExampleComponent() {
             const response = await axios.get('/');
             setMessage(response.data);
         } catch (error) {
+            setMessage('test');
             console.error(error);
         }
     };
