@@ -1,17 +1,18 @@
+# 這個 workflow 的名稱
 name: Docker Image CI
-
+# 決定這個 workflow 觸發的條件
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+# 裡面定義各種要執行的 jobs ，ex: build 就是其中一個 job 的名稱
 jobs:
 
   build:
-
+    # runs-on: 決定要運行在哪一個平台上
     runs-on: ubuntu-latest
-
+    # steps: 就如同前面所介紹的，這裡的 steps定義這個 job的步驟，而每一個在 steps底下的 name 就是一個 step，使用 run來決定要執行的 actions/commands 。
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
