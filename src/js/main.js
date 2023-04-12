@@ -31,7 +31,7 @@ function ExampleComponent() {
     return (
         <div>
             <button onClick={handleClick}>Click me hello</button>
-            <button onClick={handleClick2}>Click me</button>
+            <button onClick={handleClick2}>Click me hello2</button>
             <p>{message}</p>
         </div>
     );
