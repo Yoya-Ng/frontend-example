@@ -4,8 +4,6 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 # 裡面定義各種要執行的 jobs ，ex: build 就是其中一個 job 的名稱
 jobs:
 
