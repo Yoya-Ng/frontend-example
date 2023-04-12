@@ -20,9 +20,8 @@ function ExampleComponent() {
     const handleClick2 = async () => {
         try {
             const response = await axios.get('http://35.197.82.185/hello2');
-            console.log('start');
-            console.log(JSON.stringify(response.data));
-            setMessage(JSON.stringify(response.data));
+            console.log(response.data + '');
+            // setMessage(response.data);
         } catch (error) {
             console.error(error);
         }
