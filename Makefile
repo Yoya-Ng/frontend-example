@@ -1,6 +1,6 @@
 build:
 	git pull
-	docker build -t backend-example . 
-	docker stop backend-example
-	doker rm backend-example
-	docker run -d --name frontend-example -p 80:80 frontend-example
+	sudo docker build -t backend-example . 
+	sudo docker stop backend-example
+	sudo doker rm backend-example
+	sudo docker run -d --name frontend-example -p 80:80 frontend-example
