@@ -6,4 +6,4 @@ build:
     docker build -t $(IMAGE_NAME) .
     
 hello:
- 
+ git pull
