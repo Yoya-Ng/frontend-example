@@ -1,4 +1,12 @@
+run:
+	git pull
+	sudo docker-compose up -d
 build:
+	git pull
+	sudo docker build -t frontend-example . 
+	sudo docker build -t backend-example . 
+	sudo docker-compose up -d
+buildpost:
 	git pull
 	sudo docker build -t frontend-example . 
 	sudo docker stop frontend-example
