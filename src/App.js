@@ -1,5 +1,5 @@
 import './App.css';
-// import Main from './js/main';
+import Main from './js/main';
 import MyApp from './js/material-ui';
 // import NameForm from './note/NameForm';
 // import FlavorForm from './note/FlavorForm';
@@ -17,7 +17,7 @@ import React from "react";
 function App() {
   return (
     <div className="App">
-      {/* <Main /> */}
+      <Main />
       <MyApp />
     </div>
   );
