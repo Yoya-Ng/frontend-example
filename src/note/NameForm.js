@@ -23,8 +23,13 @@ export class NameForm extends Component {
       render() {
         return (
           <form onSubmit={this.handleSubmit}>
+             <label>
+              Essay1:
+              <input  value={this.state.value} onChange={this.handleChange} />
+            </label>
+            <br/>
             <label>
-              Essay:
+              Essay2:
               <textarea value={this.state.value} onChange={this.handleChange} />
             </label>
             <input type="submit" value="Submit" />
