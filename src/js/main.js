@@ -11,7 +11,7 @@ function ExampleComponent() {
 
     const handleClick = async () => {
         try {
-            const response = await axios.get('//backend-example/hello');
+            const response = await axios.get('http://backend-example/hello');
             setMessage(response.data);
         } catch (error) {
             console.error(error);
@@ -19,7 +19,7 @@ function ExampleComponent() {
     };
     const handleClick2 = async () => {
         try {
-            const response = await axios.get('//backend-example/hello');
+            const response = await axios.get('http://backend-example/hello');
             console.log('start');
             console.log(JSON.stringify(response.data));
             setMessage(JSON.stringify(response.data));
