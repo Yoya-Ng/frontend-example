@@ -1,0 +1,35 @@
+version: "3"
+services:
+  frontend-example:
+    container_name: frontend-example
+    image: frontend-example
+    ports:
+      - "80:80"
+    networks:
+      - backend
+  backend-example:
+    container_name: backend-example
+    image: backend-example
+#     ports:
+#       - "80:80"
+    # depends_on:
+    #   - mariadb
+    volumes:
+      - /run/mysqld:/run/mysqld
+    networks:
+      - backend
+  # mariadb:
+  #   container_name: mariadb
+  #   image: mariadb
+  #   environment:
+  #     MYSQL_DATABASE: test
+  #     MYSQL_USER: root
+  #     MYSQL_ROOT_PASSWORD: adminroot
+  #   volumes:
+  #     - backendDB:/var/lib/mysql
+  #   networks:
+  #     - backend
+networks:
+  backend:
+# volumes:
+#     backendDB:
