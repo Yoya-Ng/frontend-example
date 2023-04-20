@@ -4,6 +4,7 @@ run:
 build:
 	git pull
 	sudo docker build -t frontend-example . 
+	cd ../backend-example-
 	sudo docker build -t backend-example . 
 	sudo docker-compose up -d
 buildpost:
